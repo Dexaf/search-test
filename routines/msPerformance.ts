@@ -13,11 +13,13 @@ export const msPerformanceRoutine = () => {
   //SECTION - TREE
   const fullTreeTimers: number[] = [];
   const searchTreeTimers: number[] = [];
+  const loweredTitles = titles.map(t => t.toLowerCase()) //needed for my specific situation
+
   for (let i = 0; i < 10000000; i++) {
     const t0s = performance.now();
-    const treeRoot = arrayToTree(titles);
+    const treeRoot = arrayToTree(loweredTitles);
     const t1s = performance.now();
-    findInTree<string>(treeRoot, titles[i]);
+    findInTree<string>(treeRoot, loweredTitles[i]);
     const t1e = performance.now();
     const t0e = performance.now();
     fullTreeTimers.push(t0e - t0s);
@@ -29,7 +31,7 @@ export const msPerformanceRoutine = () => {
   const searchSimpleArrayTimers: number[] = [];
   for (let i = 0; i < 10000000; i++) {
     const t0s = performance.now();
-    titles.find(t => t === titles[i]);
+    loweredTitles.find(t => t === loweredTitles[i]);
     const t0e = performance.now();
     searchSimpleArrayTimers.push(t0e - t0s);
   }
@@ -40,9 +42,9 @@ export const msPerformanceRoutine = () => {
   const searchSortedArrayTimers: number[] = [];
   for (let i = 0; i < 10000000; i++) {
     const t0s = performance.now();
-    const sortedTitles = titles.sort();
+    const sortedTitles = loweredTitles.sort();
     const t1s = performance.now();
-    pivotSearch(sortedTitles, titles[i]);
+    pivotSearch(sortedTitles, loweredTitles[i]);
     const t1e = performance.now();
     const t0e = performance.now();
     fullSortedArrayTimers.push(t0e - t0s);
