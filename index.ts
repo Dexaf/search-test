@@ -1,12 +1,16 @@
-import { msPerformanceRoutine } from "./routines/msPerformance";
+//import { msPerformanceRoutine } from "./routines/msPerformance";
 import { stepPerformanceRoutine } from "./routines/stepPerformance";
+import { titles } from "./structures/mockdata";
+import { arrayToTree } from "./structures/tree";
 
 const testingMode: string = process.argv[2];
+
+const root = arrayToTree(titles);
 
 switch (testingMode) {
   case "performance":
     console.log("Running 'performance', it will take a while...");
-    msPerformanceRoutine();
+    //msPerformanceRoutine();
     break;
   case "steps":
     console.log("Running 'steps', it will take a while...");

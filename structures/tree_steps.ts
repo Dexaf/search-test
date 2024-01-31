@@ -1,13 +1,13 @@
-import { TreeNode } from "./tree";
+import { TwoWayTreeNode } from "./tree";
 
 let steps = 0;
-export const findInTreeWithStepsCount = <T>(node: TreeNode<T>, val: T): number => {
+export const findInTreeWithStepsCount = <T>(node: TwoWayTreeNode<T>, val: T): number => {
   steps = 0;
   findInTree(node, val);
   return steps;
 }
 
-export const findInTree = <T>(node: TreeNode<T>, val: T): T | null => {
+export const findInTree = <T>(node: TwoWayTreeNode<T>, val: T): T | null => {
   steps++;
   if (node.value === val)
     return val

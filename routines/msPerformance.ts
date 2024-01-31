@@ -4,7 +4,7 @@ import { arrayToTree, findInTree } from "../structures/tree";
 import { displayPerformanceData } from "../utils";
 
 export const msPerformanceRoutine = () => {
-  let found: string | null | undefined = "";
+  let found: string[] = [];
   const randIndexes: number[] = [];
   for (let i = 0; i < 10000000; i++) {
     randIndexes.push(Math.floor((Math.random() * 100) % titles.length));
@@ -17,7 +17,7 @@ export const msPerformanceRoutine = () => {
     const t0s = performance.now();
     const treeRoot = arrayToTree(titles);
     const t1s = performance.now();
-    found = findInTree<string>(treeRoot, titles[i]);
+    findInTree<string>(treeRoot, titles[i]);
     const t1e = performance.now();
     const t0e = performance.now();
     fullTreeTimers.push(t0e - t0s);
@@ -29,7 +29,7 @@ export const msPerformanceRoutine = () => {
   const searchSimpleArrayTimers: number[] = [];
   for (let i = 0; i < 10000000; i++) {
     const t0s = performance.now();
-    found = titles.find(t => t === titles[i]);
+    titles.find(t => t === titles[i]);
     const t0e = performance.now();
     searchSimpleArrayTimers.push(t0e - t0s);
   }
@@ -42,7 +42,7 @@ export const msPerformanceRoutine = () => {
     const t0s = performance.now();
     const sortedTitles = titles.sort();
     const t1s = performance.now();
-    found = pivotSearch(sortedTitles, titles[i]);
+    pivotSearch(sortedTitles, titles[i]);
     const t1e = performance.now();
     const t0e = performance.now();
     fullSortedArrayTimers.push(t0e - t0s);

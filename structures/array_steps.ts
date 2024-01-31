@@ -1,4 +1,4 @@
-import { TreeNode } from "./tree";
+import { TwoWayTreeNode } from "./tree";
 
 let steps = 0;
 export const pivotSearchWithStepsCount = <T>(array: T[], val: T): number => {

@@ -92,3 +92,5 @@ export const titles: string[] = [
   'Frittelle di Ricotta con Miele',
   'Risotto al Nero di Seppia con Calamaretti',
 ];
+
+export const suggestedSearchQta: number = 20;
