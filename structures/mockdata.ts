@@ -2,6 +2,8 @@ export const titles: string[] = [
   'Spaghetti alla Carbonara',
   'Risotto ai Funghi Porcini',
   'Pollo al Limone con Patate',
+  'Spaghetti',
+  'Spaghe',
   'Tiramisù Classico con Caffè',
   'Insalata Caprese Fresca',
   'Salmone alla Griglia con Erbe Aromatiche',
