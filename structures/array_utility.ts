@@ -4,7 +4,7 @@ export const fillSuggestions = (orderedArray: string[], searchedWord: string): s
   let suggestions: string[] = [];
 
   suggestions = [...searchForWord(orderedArray, searchedWord, true)];
-  const words = searchedWord.replace(',', '').split(" ").filter(w => w.length > 4);
+  const words = searchedWord.replace(',', '').split(" ").filter(w => w.length > 4).sort((a, b) => (b.length < a.length) ? -1 : (b.length === a.length) ? 0 : 1);
 
   if (words.length > 1)
     words.forEach(word => {
